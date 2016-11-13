@@ -1,18 +1,17 @@
-# Custom-Network-Topology
-    Created a custom network topology using mininet python APIs as given below.
+Custom topology using mininet.
+Name: Aditya Jindal
+Roll No.: 201230010
 
-    No. of hosts: M
-    No. of switches: N
-    
-    All the switches are connected to each other
+To Run:
 
-    Odd hosts can only talk to each other and even hosts can talk to each other
-    All the communication are throttled to 1 mbps for odd hosts and 2 mbps for even hosts
+sudo python create.py <number of switches> <number of hosts per switch>
+The topology gets loaded and mininet console is opened.
 
-    Instructions for executing
+On another console run:
+1. Move into the pox directory located in the home directory. 
+2. Type ./pox forwarding.l2_pairs
+This starts the pox controller for learning mechanism.
 
-      > sudo python create.py N M
-      > pingall
-      
-      
-      
+On the mininet console:
+1. Type pingall to see the ping responses. Odd nodes ping to odd numbered nodes and even nodes ping to even numbered nodes only.
+2. Type iperf h1 h3 to see the t bandwidth allocated to the link. For odd numbered nodes, it is set to 1Mbps and for even numbered nodes, it is set to 2Mbps.
